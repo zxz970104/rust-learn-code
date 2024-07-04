@@ -1,0 +1,154 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "2.0.0",
+  "configurations": [
+    { //这个大括号里是我们的‘调试(Debug)’配置
+      "name": "get_pcd Debug", // 配置名称
+      "type": "cppdbg", // 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg
+      "request": "launch", // 请求配置类型，可以为launch（启动）或attach（附加）
+      // "program": "/home/demo/Documents/PCS/RW-new/unitest/build/src/sdk/sdk_unitest", // 将要进行调试的程序的路径
+      "program": "/home/demo/Documents/client/ISW-7453/inno-lidar-sdk-2/apps/tools/get_pcd/get_pcd", // 将要进行调试的程序的路径
+      "args": [
+        "--frame-number",
+        "20",
+        "--k_mean",
+        "5",
+        "--output-filename",
+        "test.inno_pc"
+      ], // 程序调试时传递给程序的命令行参数，这里设为空即可
+      "stopAtEntry": false, // 设为true时程序将暂停在程序入口处，相当于在main上打断点
+      "cwd": "${workspaceFolder}", // 调试程序时的工作目录，此处为源码文件所在目录
+      "environment": [], // 环境变量，这里设为空即可
+      "externalConsole": false, // 为true时使用单独的cmd窗口，跳出小黑框；设为false则是用vscode的内置终端，建议用内置终端
+      "internalConsoleOptions": "neverOpen", // 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，新手调试用不到
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb", // 指定调试器所在路径，如果你的minGW装在别的地方，则要改成你自己的路径，注意间隔是\\
+      "setupCommands": [
+        {
+          "description": "为 gdb 启用整齐打印",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "将反汇编风格设置为 Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    { //这个大括号里是我们的‘调试(Debug)’配置
+      "name": "get_pcd_mean Debug", // 配置名称
+      "type": "cppdbg", // 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg
+      "request": "launch", // 请求配置类型，可以为launch（启动）或attach（附加）
+      // "program": "/home/demo/Documents/PCS/RW-new/unitest/build/src/sdk/sdk_unitest", // 将要进行调试的程序的路径
+      "program": "/home/demo/Documents/client/ISW-7453/inno-lidar-sdk-2/apps/tools/get_pcd/get_pcd", // 将要进行调试的程序的路径
+      "args": [
+        "--k_mean",
+        "5",
+        "--noise_threshold",
+        "0.1",
+        "--inno-pc-filename",
+        "test.inno_pc",
+        "--frame-start",
+        "10",
+        "--frame-number",
+        "1",
+        "--file-number",
+        "50",
+        "--output-filename",
+        "./pcd_mean/test.pcd",
+        // ">",
+        // "./mean.log"
+      ], // 程序调试时传递给程序的命令行参数，这里设为空即可
+      "stopAtEntry": false, // 设为true时程序将暂停在程序入口处，相当于在main上打断点
+      "cwd": "${workspaceFolder}/apps/tools/get_pcd/", // 调试程序时的工作目录，此处为源码文件所在目录
+      "environment": [], // 环境变量，这里设为空即可
+      "externalConsole": false, // 为true时使用单独的cmd窗口，跳出小黑框；设为false则是用vscode的内置终端，建议用内置终端
+      "internalConsoleOptions": "neverOpen", // 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，新手调试用不到
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb", // 指定调试器所在路径，如果你的minGW装在别的地方，则要改成你自己的路径，注意间隔是\\
+      "setupCommands": [
+        {
+          "description": "为 gdb 启用整齐打印",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "将反汇编风格设置为 Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    { //这个大括号里是我们的‘调试(Debug)’配置
+      "name": "get_pcd_mean2 Debug", // 配置名称
+      "type": "cppdbg", // 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg
+      "request": "launch", // 请求配置类型，可以为launch（启动）或attach（附加）
+      // "program": "/home/demo/Documents/PCS/RW-new/unitest/build/src/sdk/sdk_unitest", // 将要进行调试的程序的路径
+      "program": "/home/demo/Documents/client/ISW-7453/inno-lidar-sdk-2/apps/tools/get_pcd/get_pcd", // 将要进行调试的程序的路径
+      "args": [
+        "--inno-pc-filename",
+        "test.inno_pc",
+        "--frame-start",
+        "10",
+        "--frame-number",
+        "1",
+        "--file-number",
+        "50",
+        "--output-filename",
+        "./pcd/test.pcd",
+        ">",
+        "./pcd.log"
+      ], // 程序调试时传递给程序的命令行参数，这里设为空即可
+      "stopAtEntry": false, // 设为true时程序将暂停在程序入口处，相当于在main上打断点
+      "cwd": "${workspaceFolder}/apps/tools/get_pcd/", // 调试程序时的工作目录，此处为源码文件所在目录
+      "environment": [], // 环境变量，这里设为空即可
+      "externalConsole": false, // 为true时使用单独的cmd窗口，跳出小黑框；设为false则是用vscode的内置终端，建议用内置终端
+      "internalConsoleOptions": "neverOpen", // 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，新手调试用不到
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb", // 指定调试器所在路径，如果你的minGW装在别的地方，则要改成你自己的路径，注意间隔是\\
+      "setupCommands": [
+        {
+          "description": "为 gdb 启用整齐打印",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "将反汇编风格设置为 Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    },
+    { //这个大括号里是我们的‘调试(Debug)’配置
+      "name": "C++ Debug", // 配置名称
+      "type": "cppdbg", // 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg
+      "request": "launch", // 请求配置类型，可以为launch（启动）或attach（附加）
+      // "program": "/home/demo/Documents/PCS/RW-new/unitest/build/src/sdk/sdk_unitest", // 将要进行调试的程序的路径
+      "program": "/home/demo/Documents/RUST/a.out", // 将要进行调试的程序的路径
+      "args": [
+      ], // 程序调试时传递给程序的命令行参数，这里设为空即可
+      "stopAtEntry": false, // 设为true时程序将暂停在程序入口处，相当于在main上打断点
+      "cwd": "${workspaceFolder}", // 调试程序时的工作目录，此处为源码文件所在目录
+      "environment": [], // 环境变量，这里设为空即可
+      "externalConsole": false, // 为true时使用单独的cmd窗口，跳出小黑框；设为false则是用vscode的内置终端，建议用内置终端
+      "internalConsoleOptions": "neverOpen", // 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，新手调试用不到
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb", // 指定调试器所在路径，如果你的minGW装在别的地方，则要改成你自己的路径，注意间隔是\\
+      "setupCommands": [
+        {
+          "description": "为 gdb 启用整齐打印",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "将反汇编风格设置为 Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
