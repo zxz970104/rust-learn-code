@@ -18,10 +18,10 @@ fn main() {
         // <_>表示Vec中的元素类型由编译器自行推断
         let fields: Vec<_> = record
             .split(',')
-            .map(|field| field.trim())
+            .map(|field| field.trim())  // 函数可以作为参数也可以作为返回值，这里map方法中的闭包函数（匿名函数/lambda函数）就是参数
             .collect();
 
-        if cfg!(debug_assertions) {
+        if cfg!(debug_assertions) {  // 条件编译，debug模式下才会执行
             // 输出到标准错误输出
             eprintln!("debug: {:?} -> {:?}", record, fields);
         }
@@ -34,7 +34,7 @@ fn main() {
                 2）同时 if let 还会做一次解构匹配，通过 Ok(length) 去匹配右边的 Ok(f32)，最终把相应的 f32 值赋给 length
         */
         // 3. 当然你也可以忽略成功的情况，用 if let Err(e) = fields[1].parse::<f32>() {...}匹配出错误，然后打印出来，但是没啥卵用
-        if let Ok (length) = fields[1].parse::<f32>() {
+        if let Ok (length) = fields[1].parse::<f32>() {  // ::<f32>表示parse方法的返回值类型是f32, 这种类型标注不是很常用，但是在编译器无法推断出你的数据类型时,就很有用了
             // 输出到标准输出
             println!("{}, {}cm", name, length);
         }
