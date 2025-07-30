@@ -3,8 +3,8 @@ fn main() {
     common name,length (cm)
     Little penguin,33
     Yellow-eyed penguin,65
-    Fiordland penguin,60
-    Invalid,data
+    Fiordland penguin,
+    Invalid,56
     ";
 
     let records = penguin_data.lines();
@@ -37,6 +37,14 @@ fn main() {
         if let Ok (length) = fields[1].parse::<f32>() {  // ::<f32>表示parse方法的返回值类型是f32, 这种类型标注不是很常用，但是在编译器无法推断出你的数据类型时,就很有用了
             // 输出到标准输出
             println!("{}, {}cm", name, length);
+        } else {
+            // 输出到标准错误输出
+            eprintln!("error: failed to parse length for '{}'", name);
         }
+
+        panic!("oh no!");
+
+        let a: u16 = 1;
+        println!("a = {}", a);
     }
 }
